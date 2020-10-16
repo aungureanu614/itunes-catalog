@@ -1,11 +1,12 @@
 import React from 'react';
-// import logo from './logo.svg';
 import './App.css';
-import Search from './Search';
+import { Search } from './Components/Search';
+import { Card } from './Components/Card';
 
 
 function App() {
   //TODO: style the whole app
+
   return (
     <div className="App">
       <Search />

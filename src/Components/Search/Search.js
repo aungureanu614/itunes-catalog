@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Card from './Card'
+import { Card } from '../Card'
 
-const Search = () => {
+export const Search = () => {
 const [term, setTerm] = useState('');
 const [searchResults, setSearchResults] = useState('');
 
@@ -22,7 +22,7 @@ const getTerm = (e) => {
     getMedia();
     
   },[term]);
-  // is it good for card to be here or should it be in App.js?
+
   return(
     <div>
       <input type="text" placeholder="Search term" onChange={getTerm}></input>
@@ -30,5 +30,3 @@ const getTerm = (e) => {
     </div>
   )
 };
-
-export default Search;

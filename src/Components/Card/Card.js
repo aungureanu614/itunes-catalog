@@ -1,7 +1,7 @@
 import React  from 'react';
-import Item from './Item'
+import { Item } from '../Item'
 
-const Card = ({info}) => {
+export const Card = ({info}) => {
   return(
     <div>
      {Object.entries(info).map(([title, items], idx) => (
@@ -21,5 +21,3 @@ const Card = ({info}) => {
     </div>
   )
 };
-
-export default Card;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Item = ({artwork, name, genre, url}) => {
+export const Item = ({artwork, name, genre, url}) => {
   //TODO: allow items to be marked as "favorites"
   return(
     <div>
@@ -13,5 +13,3 @@ const Item = ({artwork, name, genre, url}) => {
   )
 
 }
-
-export default Item;
