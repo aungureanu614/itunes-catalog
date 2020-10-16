@@ -5,7 +5,7 @@ export const useDebounce = (term, delay) => {
 
   useEffect(() => {
     const debounce = setTimeout(() => {
-      setDebouncedTerm(term)
+      setDebouncedTerm(term);
     }, delay);
 
     return () => {

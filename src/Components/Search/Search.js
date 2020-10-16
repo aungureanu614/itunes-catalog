@@ -15,15 +15,15 @@ export const Search = ({ displayResults, setIsSearching }) => {
       const media = await fetch(`/api/search?term=${term}`);
       return await media.json();
     } catch(error) {
-      console.error(error)
+      console.error(error);
     }
-  }
+  };
 
     useEffect(() => {
       if(term.length >= 3 && debouncedSearchTerm) {
         setIsSearching(true);
         const getResults = async() => {
-        const mediaResult = await getMedia(debouncedSearchTerm)
+        const mediaResult = await getMedia(debouncedSearchTerm);
           setIsSearching(false);
           displayResults(mediaResult);
         }
