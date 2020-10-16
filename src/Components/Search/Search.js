@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import {useDebounce} from '../../Hooks/useDebounce';
 
 export const Search = ({ displayResults }) => {
 const [term, setTerm] = useState('');
+const [isSearching, setIsSearching] = useState(false);
+const debouncedSearchTerm = useDebounce(term, 500);
 
 const getTerm = (e) => {
   setTerm(e.target.value);
