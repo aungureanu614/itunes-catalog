@@ -1,33 +1,41 @@
 import React, { useEffect, useState } from 'react';
 import {useDebounce} from '../../Hooks/useDebounce';
 
-export const Search = ({ displayResults }) => {
-const [term, setTerm] = useState('');
-const [isSearching, setIsSearching] = useState(false);
-const debouncedSearchTerm = useDebounce(term, 500);
+export const Search = ({ displayResults, setIsSearching }) => {
+  const [term, setTerm] = useState('');
 
-const getTerm = (e) => {
-  setTerm(e.target.value);
-}
+  const debouncedSearchTerm = useDebounce(term, 500);
 
-  useEffect(() => {
-    //TODO: create a debounce hook and use it on searching
-    const getMedia = async() => {
-      if(term.length >= 3) {
-        const media = await fetch(`/api/search?term=${term}`);
-        const mediaResult = await media.json();
-        displayResults(mediaResult);
+  const getTerm = (e) => {
+    setTerm(e.target.value);
+  }
+
+  const getMedia = async(term) => {
+    try {
+      const media = await fetch(`/api/search?term=${term}`);
+      return await media.json();
+    } catch(error) {
+      console.error(error)
+    }
+  }
+
+    useEffect(() => {
+      if(term.length >= 3 && debouncedSearchTerm) {
+        setIsSearching(true);
+        const getResults = async() => {
+        const mediaResult = await getMedia(debouncedSearchTerm)
+          setIsSearching(false);
+          displayResults(mediaResult);
+        }
+        getResults();
       } else {
         displayResults('');
       }
-    }
-    getMedia();
-    
-  },[term]);
+    },[debouncedSearchTerm]);
 
-  return(
-    <div>
-      <input type="text" placeholder="Search term" onChange={getTerm}></input>
-    </div>
-  )
+    return(
+      <div>
+        <input type="text" placeholder="Search itunes" onChange={getTerm}></input>
+      </div>
+    )
 };
