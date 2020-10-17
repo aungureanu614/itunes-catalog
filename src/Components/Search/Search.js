@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {useDebounce} from '../../Hooks/useDebounce';
+import styles from './Search.module.css';
 
-export const Search = ({ displayResults, setIsSearching }) => {
+export const Search = ({ displayResults, setIsSearching, placeholderText }) => {
   const [term, setTerm] = useState('');
 
   const debouncedSearchTerm = useDebounce(term, 500);
@@ -34,8 +35,8 @@ export const Search = ({ displayResults, setIsSearching }) => {
     },[debouncedSearchTerm]);
 
     return(
-      <div>
-        <input type="text" placeholder="Search itunes" onChange={getTerm}></input>
-      </div>
+      <>
+        <input className={styles.Search} type="text" placeholder={placeholderText} onChange={getTerm}></input>
+      </>
     )
 };

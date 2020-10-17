@@ -1,0 +1,12 @@
+.Search {
+  border-radius: 50px;
+  border: 2px solid #d754ad;
+  width: 30%;
+  padding: 10px;
+}
+
+input:focus {
+  outline:none;
+  border-radius: 50px;
+  box-shadow: inset 0 0 0 1px lightskyblue;
+}

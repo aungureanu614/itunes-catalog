@@ -5,13 +5,15 @@ import { Card } from './Components/Card';
 
 
 function App() {
-  //TODO: style the whole app
   const [display, setDisplay] = useState('');
   const [isSearching, setIsSearching] = useState(false);
 
   return (
     <div className="App">
-      <Search setIsSearching={setIsSearching} displayResults={searchResults => setDisplay(searchResults)} />
+      <div className="Header-container">
+        <h3 className="App-header">iTunes Search</h3>
+        <Search setIsSearching={setIsSearching} displayResults={searchResults => setDisplay(searchResults)} placeholderText="Search iTunes..."/>
+      </div>
       {isSearching ? <div>Searching...</div> : <Card info={display} />}
     </div>
   );
