@@ -1,0 +1,24 @@
+.SectionItems {
+  display: grid;
+  grid-gap: 50px 100px;
+  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  /* display: flex; */
+  /* justify-content: space-between; */
+}
+
+.Section {
+  margin: 40px 0;
+  padding: 30px;
+  border-radius: 10px;
+  border-top: 2px solid red;
+  background: linear-gradient(-31deg, #d754ad 0%, #d754ad 10%, #f96785 62%, #fe7333 100%);
+  /* height: 100vh; */
+  /* border-image-source: linear-gradient(to left, #743ad5, #d53a9d); */
+}
+
+.SectionHeader {
+  text-align: center;
+  padding-bottom: 20px;
+  text-decoration: underline;
+}

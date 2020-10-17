@@ -1,12 +1,14 @@
 import React  from 'react';
-import { Item } from '../Item'
+import { Item } from '../Item';
+import styles from './Card.module.css';
 
 export const Card = ({info}) => {
   return(
     <div>
      {Object.entries(info).map(([title, items], idx) => (
-      <div key={idx}>
-        <div>Section: {title}</div>
+      <div className={styles.Section} key={idx}>
+        <h2 className={styles.SectionHeader}>{title.toUpperCase()}</h2>
+        <div className={styles.SectionItems}>
         {items.map((item, key) => {
           const {
             artwork,
@@ -16,6 +18,7 @@ export const Card = ({info}) => {
           } = item;
           return (<Item key={key} artwork={artwork} name={name} genre={genre} url={url}/>)
         })}
+        </div>
       </div>
      ))}
     </div>

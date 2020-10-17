@@ -10,11 +10,9 @@ function App() {
 
   return (
     <div className="App">
-      <div className="Header-container">
         <h3 className="App-header">iTunes Search</h3>
         <Search setIsSearching={setIsSearching} displayResults={searchResults => setDisplay(searchResults)} placeholderText="Search iTunes..."/>
-      </div>
-      {isSearching ? <div>Searching...</div> : <Card info={display} />}
+         {isSearching ? <div>Searching...</div> : <Card info={display} />}  
     </div>
   );
 }
