@@ -8,5 +8,5 @@
 input:focus {
   outline:none;
   border-radius: 50px;
-  box-shadow: inset 0 0 0 1px lightskyblue;
+  box-shadow: inset 0 0 0 2px blue;
 }
